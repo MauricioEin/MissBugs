@@ -1,0 +1,67 @@
+[
+  {
+    "title": "New BUg",
+    "description": "",
+    "severity": 3,
+    "owner": {
+      "_id": "zQuW7",
+      "fullname": "Puki Ga"
+    },
+    "_id": "4ZBau",
+    "createdAt": 1668614323675
+  },
+  {
+    "title": "i dk",
+    "description": "whatever",
+    "owner": {
+      "_id": null,
+      "fullname": ""
+    },
+    "severity": 3,
+    "_id": "D1joh",
+    "createdAt": 1668604745674
+  },
+  {
+    "_id": "aCFqJ",
+    "title": "mamas",
+    "description": "1212",
+    "owner": {
+      "_id": null,
+      "fullname": ""
+    },
+    "severity": 1
+  },
+  {
+    "_id": "AFsT0",
+    "title": "Colors change",
+    "description": "Suddenly colors are different and then they eventually return to normal",
+    "owner": {
+      "_id": null,
+      "fullname": ""
+    },
+    "severity": 2,
+    "createdAt": 1668438433488
+  },
+  {
+    "_id": "aMVFc",
+    "title": "Wont open",
+    "description": "it doesnt turn on",
+    "owner": {
+      "_id": null,
+      "fullname": ""
+    },
+    "severity": 2,
+    "createdAt": 1668435159953
+  },
+  {
+    "_id": "S1EcE",
+    "title": "Mouse STUCK",
+    "description": "few times a day it just freezes for some seconds",
+    "owner": {
+      "_id": null,
+      "fullname": ""
+    },
+    "severity": 2,
+    "createdAt": 1668432142274
+  }
+]
