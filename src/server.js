@@ -1,11 +1,11 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 
-const bugService = require('./services/bug.service')
-const userService = require('./services/user.service')
-const pdfService = require('./services/pdf-service')
+const bugService = require('../services/bug.service')
+const userService = require('../services/user.service')
+const pdfService = require('../services/pdf-service')
 
-const bugs = require('./data/bug.json')
+const bugs = require('../data/bug.json')
 
 
 
