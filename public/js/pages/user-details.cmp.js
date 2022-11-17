@@ -29,7 +29,7 @@ export default {
             userService.getById(userId)
                 .then(user => {
                     this.user = user
-                    bugService.query({ userId: this.user._id })
+                    bugService.getByUser(this.user._id)
                         .then(bugs => this.bugs = bugs)
 
                 })
@@ -38,7 +38,7 @@ export default {
                 })
         }
     },
-    components:{
+    components: {
         bugList,
     }
 }

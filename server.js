@@ -1,11 +1,11 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 
-const bugService = require('../services/bug.service')
-const userService = require('../services/user.service')
-const pdfService = require('../services/pdf-service')
+const bugService = require('./services/bug.service')
+const userService = require('./services/user.service')
+const pdfService = require('./services/pdf-service')
 
-const bugs = require('../data/bug.json')
+const bugs = require('./data/bug.json')
 
 
 
@@ -45,32 +45,41 @@ app.post('/api/bug/', (req, res) => {
     bugService.save(bug)
         .then(savedBug => res.send(savedBug))
         .catch(err => res.status(400).send('Cannot save bug'))
-})
-
-// UPDATE
-app.put('/api/bug/:bugId', (req, res) => {
-    const loggedinUser = userService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot add bug')
-
-    const { _id, title, description, severity } = req.body
-    const bug = {
-        _id,
-        title,
-        description,
-        severity: +severity
-    }
-    bugService.save(bug, loggedinUser)
+    })
+    
+    // UPDATE
+    app.put('/api/bug/:bugId', (req, res) => {
+        const loggedinUser = userService.validateToken(req.cookies.loginToken)
+        if (!loggedinUser) return res.status(401).send('Cannot add bug')
+        
+        const { _id, title, description, severity } = req.body
+        const bug = {
+            _id,
+            title,
+            description,
+            severity: +severity
+        }
+        bugService.save(bug, loggedinUser)
         .then(savedBug => res.send(savedBug))
         .catch(err => res.status(500).send('Cannot save bug'))
-})
+    })
+    
+    // LIST OF USER
+    app.get('/api/bug/user/:userId', (req, res) => {
+        const { userId } = req.params
+        console.log(userId)
 
+        bugService.getUserBugs(userId)
+            .then((bugs) => res.send(bugs))
+            .catch(err => res.send(err))
+    })
 
 app.get('/api/bug/pdf', (req, res) => {
     pdfService.buildBugPDF(bugs).then(() => res.download('pdf/bugs.pdf'))
     // setTimeout(() => res.download('pdf/bugs.pdf'), 1000)
     // .then(file => res.download('pdf/bugs.pdf'))
     // const file = 'pdf/bugs.pdf' 
-
+    
 })
 
 // READ
@@ -171,6 +180,12 @@ app.delete('/api/auth/:userId', (req, res) => {
 
 
 
-app.listen(3031, () => console.log('Server ready at port 3031!'))
+const PORT = process.env.PORT || 3031
+
+app.listen(PORT, () =>
+  console.log(`Server listening on port http://127.0.0.1:${PORT}/`)
+)
+
+// app.listen(3031, () => console.log('Server ready at port 3031!'))
 
 

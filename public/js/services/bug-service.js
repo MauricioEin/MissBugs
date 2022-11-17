@@ -7,6 +7,7 @@ export const bugService = {
   save,
   remove,
   downloadPDF,
+  getByUser
 }
 
 const BASE_URL = `/api/bug/`
@@ -16,8 +17,15 @@ function query(filterBy) {
   return axios.get(BASE_URL, { params: filterBy }).then(res => res.data)
 }
 
+
 function getById(bugId) {
   return axios.get(BASE_URL + bugId).then(res => res.data)
+}
+
+function getByUser(userId) {
+  console.log('entered1')
+  return axios.get(BASE_URL + 'user/' + userId).then(res => res.data)
+
 }
 
 

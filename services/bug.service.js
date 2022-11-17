@@ -5,7 +5,8 @@ module.exports = {
     query,
     getById,
     save,
-    remove
+    remove,
+    getUserBugs
 
 }
 const itemsPerPage = 3
@@ -27,6 +28,14 @@ function getById(bugId) {
     const bug = gBugs.find(bug => bug._id === bugId)
     if (!bug) return Promise.reject('No such bug')
     return Promise.resolve(bug)
+}
+
+function getUserBugs(userId){
+    const bugs = gBugs.filter(bug => bug.owner._id === userId)
+    if (!bugs.length) return Promise.reject('No bugs for this user')
+    return Promise.resolve(bugs)
+
+    
 }
 
 function save(bug, loggedinUser) {

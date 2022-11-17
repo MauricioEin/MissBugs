@@ -21,6 +21,7 @@ function query(filterBy) {
 }
 
 
+
 function getById(userId) {
     const user = gUsers.find(user => user._id === userId)
     if (!user) return Promise.reject('Unknown user')

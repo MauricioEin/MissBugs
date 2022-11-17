@@ -10,6 +10,7 @@ export default {
         <h2>{{errData}}</h2>
       </div>
       <h1 v-if="bug" >{{bug.title}}</h1>
+      <p>Created by {{bug.owner.fullname}}</p>
         <p v-if="bug" >Description: {{bug.description}} </p>
         <span  v-if="bug" :class='"severity" + bug.severity'>Severity: {{bug.severity}}</span>
         <router-link to="/bug">Back</router-link>

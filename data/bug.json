@@ -1,5 +1,17 @@
 [
   {
+    "title": "wont add bugs",
+    "description": "i push the 'add' button and nothing happens",
+    "severity": 1,
+    "owner": {
+      "_id": "aDmIn",
+      "fullname": "admin",
+      "isAdmin": true
+    },
+    "_id": "g11qg",
+    "createdAt": 1668668330887
+  },
+  {
     "title": "New BUg",
     "description": "",
     "severity": 3,
